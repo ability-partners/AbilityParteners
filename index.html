@@ -14,10 +14,18 @@
     </head>
 
     <body>
-    <div style="text-align: left; padding: 20px;">
-        <button onclick="confirmCall()" style="display: inline-block; background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer;">
+    <div style="text-align: right; padding: 20px; position: fixed; top: 0; right: 0; z-index: 1000;">
+        <button onclick="confirmCall()" style="display: inline-block; background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
             📞 Register Now
         </button>
+    </div>
+    <script>
+        function confirmCall() {
+            if (confirm('Would you like to call Ability Partners to register?')) {
+                window.location.href = 'tel:07448567070';
+            }
+        }
+    </script>
     </div>
     <script>
         function confirmCall() {
