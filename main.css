@@ -4,7 +4,8 @@ body {
        so foreground content remains readable. If you'd like a different image,
        add it to the repo (e.g. /assets/bg.jpg) and update the URL below. */
     /* Use the chosen background image from the repo */
-    background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("background.png");
+    /* Slightly darker overlay for improved text contrast */
+    background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("background.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -49,4 +50,30 @@ h2, h3 {
 ul li {
     color: #37474f;
     font-size: 1.1em;
+}
+
+/* Responsive adjustments so the fixed Register button doesn't cover content on small screens */
+nav {
+    /* keep nav visually separated from page content */
+    border-radius: 6px;
+}
+
+nav button {
+    transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 8px;
+        top: 8px;
+        right: 8px;
+    }
+    nav button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    /* add top padding to the content wrapper to avoid overlap */
+    .content-top-padding {
+        padding-top: 72px; /* ensures content is visible below fixed nav */
+    }
 }
