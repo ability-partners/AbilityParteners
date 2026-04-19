@@ -14,11 +14,19 @@
     </head>
 
     <body>
-    <nav style="position: fixed; top: 0; right: 0; padding: 20px; background-color: rgba(255, 255, 255, 0.9); box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 1000;">
+    <nav style="position: fixed; top: 0; right: 0; padding: 20px; background-color: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 1000;">
         <button onclick="confirmCall()" style="display: inline-block; background-color: #4CAF50; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); font-size: 16px;">
-            📞 Register Now
+            📞 Register Now — 07448467070
         </button>
-        <head>
+    </nav>
+    <script>
+        function confirmCall() {
+            if (confirm('Call Ability Partners at 07448467070 to register?')) {
+                window.location.href = 'tel:07448467070';
+            }
+        }
+    </script>
+    <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <meta name="description" content="Ability Partners — specialist recruitment agency connecting skilled HGV drivers with top employers in transport and logistics. Find jobs, hire drivers, and grow with us.">
