@@ -1,6 +1,10 @@
 body {
     font-family: Arial, sans-serif;
-    background: #e3f0ff;
+    /* Subtle diagonal gradient background for the whole page. 
+       Falls back to a soft blue if gradients aren't supported. */
+    background: linear-gradient(135deg, #eaf4ff 0%, #f7fbff 40%, #eaf7f1 100%);
+    background-attachment: fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
 }
