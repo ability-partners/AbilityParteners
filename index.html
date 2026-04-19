@@ -14,17 +14,51 @@
     </head>
 
     <body>
-    <nav style="position: fixed; top: 0; right: 0; padding: 20px; background-color: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 1000;">
-        <button onclick="confirmCall()" style="display: inline-block; background-color: #4CAF50; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); font-size: 16px;">
-            📞 Register Now — 07448467070
+    <nav id="registerNav" style="position: fixed; top: 12px; right: 12px; padding: 12px; background-color: rgba(255,255,255,0.95); box-shadow: 0 2px 6px rgba(0,0,0,0.12); z-index: 1000; border-radius:6px;">
+        <button id="registerBtn" aria-haspopup="dialog" aria-controls="callPopup" style="display: inline-block; background-color: #4CAF50; color: white; padding: 10px 18px; text-decoration: none; border-radius: 5px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); font-size: 15px;">
+            📞 Register Now
         </button>
+
+        <div id="callPopup" role="dialog" aria-hidden="true" style="display:none; position: absolute; top: calc(100% + 8px); right: 0; background: #ffffff; color: #111; padding: 12px; border-radius: 6px; box-shadow: 0 6px 18px rgba(0,0,0,0.15); width: 220px;">
+            <p style="margin:0 0 8px 0; font-size:14px;">Call Ability Partners to register</p>
+            <p id="phoneNumber" style="margin:0 0 8px 0; font-weight:700; font-size:16px;">07448467070</p>
+            <div style="display:flex; gap:8px; justify-content:flex-end; align-items:center;">
+                <a id="callNow" href="tel:07448467070" style="background:#4CAF50; color:#fff; padding:8px 10px; border-radius:4px; text-decoration:none; font-weight:600;">Call</a>
+                <button id="closePopup" style="background:transparent; border:none; color:#444; cursor:pointer; padding:6px;">Close</button>
+            </div>
+        </div>
     </nav>
+
     <script>
-        function confirmCall() {
-            if (confirm('Call Ability Partners at 07448467070 to register?')) {
-                window.location.href = 'tel:07448467070';
+        (function(){
+            var btn = document.getElementById('registerBtn');
+            var popup = document.getElementById('callPopup');
+            var close = document.getElementById('closePopup');
+
+            function showPopup() {
+                popup.style.display = 'block';
+                popup.setAttribute('aria-hidden','false');
             }
-        }
+            function hidePopup() {
+                popup.style.display = 'none';
+                popup.setAttribute('aria-hidden','true');
+            }
+
+            btn.addEventListener('click', function(e){
+                e.stopPropagation();
+                if (popup.style.display === 'block') { hidePopup(); } else { showPopup(); }
+            });
+
+            close.addEventListener('click', function(e){
+                e.stopPropagation(); hidePopup();
+            });
+
+            // Close when clicking outside
+            document.addEventListener('click', function(){ hidePopup(); });
+
+            // Prevent clicks inside popup from closing
+            popup.addEventListener('click', function(e){ e.stopPropagation(); });
+        })();
     </script>
     <head>
                 <meta charset="UTF-8">
