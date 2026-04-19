@@ -1,12 +1,16 @@
 body {
     font-family: Arial, sans-serif;
-    /* Subtle diagonal gradient background for the whole page. 
-       Falls back to a soft blue if gradients aren't supported. */
-    background: linear-gradient(135deg, #eaf4ff 0%, #f7fbff 40%, #eaf7f1 100%);
-    background-attachment: fixed;
+    /* Use existing repo image as a full-screen background with a subtle dark overlay
+       so foreground content remains readable. If you'd like a different image,
+       add it to the repo (e.g. /assets/bg.jpg) and update the URL below. */
+    background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("html5.png/logo2.png");
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
+    color: #222; /* ensure default text color contrasts with background */
 }
 
 h1 {
